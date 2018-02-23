@@ -1,0 +1,178 @@
+fileFormatVersion: 2
+guid: ece13845693e99d40821390bd40bb220
+timeCreated: 1519249239
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Room
+    100004: stlFloor2_864.Shape
+    100006: stlFloor3_864.Shape
+    100008: stlFloor4_864.Shape
+    100010: stlWall3_4056.Shape
+    100012: stlWall4_4056.Shape
+    100014: stlWallCapping_9446.Shape
+    400000: //RootNode
+    400002: Room
+    400004: stlFloor2_864.Shape
+    400006: stlFloor3_864.Shape
+    400008: stlFloor4_864.Shape
+    400010: stlWall3_4056.Shape
+    400012: stlWall4_4056.Shape
+    400014: stlWallCapping_9446.Shape
+    2100000: WallA
+    2100002: LockerDoorHandle
+    2100004: TubeConnector
+    2100006: CeilingPanel
+    2100008: Tile01
+    2100010: Chrome
+    2100012: Ladder
+    2100014: LadderHandle
+    2100016: Tile02
+    2100018: Computers
+    2100020: Monitors2
+    2100022: Rack
+    2100024: Wall2
+    2100026: CeilingDetail
+    2100028: Wall3
+    2100030: CableEnd
+    2100032: Cables
+    2100034: WindowScreen
+    2100036: Handle
+    2100038: Window
+    2100040: BedsidePictures
+    2100042: Binder
+    2100044: BonsaiPot
+    2100046: PotDirt
+    2100048: Pines
+    2100050: BazaiTrunk
+    2100052: BoxCopyPaper
+    2100054: Books
+    2100056: Banana
+    2100058: Cup
+    2100060: Coffee
+    2100062: BookCase
+    2100064: Pipes
+    2100066: Pillow
+    2100068: RoguesRifle
+    2100070: BedSheet
+    2100072: BedAlcove
+    2100074: BedBase
+    2100076: BedCeiling
+    2100078: BedWall
+    2100080: BedCeilingLight
+    2100082: BedComputers
+    2100084: Panels
+    2100086: Mattress
+    2100088: Outside
+    2100090: LightFitting2Light
+    2100092: LightFitting2
+    2100094: CeilingTile
+    2100096: SidePanel
+    2100098: Flooring
+    2100100: Tile01Tube
+    2100102: FloorPanel1
+    2100104: Butress
+    2300000: Room
+    2300002: stlFloor2_864.Shape
+    2300004: stlFloor3_864.Shape
+    2300006: stlFloor4_864.Shape
+    2300008: stlWall3_4056.Shape
+    2300010: stlWall4_4056.Shape
+    2300012: stlWallCapping_9446.Shape
+    3300000: Room
+    3300002: stlFloor2_864.Shape
+    3300004: stlFloor3_864.Shape
+    3300006: stlFloor4_864.Shape
+    3300008: stlWall3_4056.Shape
+    3300010: stlWall4_4056.Shape
+    3300012: stlWallCapping_9446.Shape
+    4300000: Room
+    4300002: stlFloor2_864.Shape
+    4300004: stlFloor4_864.Shape
+    4300006: stlFloor3_864.Shape
+    4300008: stlWall4_4056.Shape
+    4300010: stlWall3_4056.Shape
+    4300012: stlWallCapping_9446.Shape
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
