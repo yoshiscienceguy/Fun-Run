@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class playermovement : MonoBehaviour
 {
+    public bool Mobile = false;
     public Transform respawnLocation;
     public float speed = 6.0F;
     public float jumpSpeed = 8.0F;
@@ -20,9 +21,13 @@ public class playermovement : MonoBehaviour
     public bool onGround;
     public float raycastSize = 1;
     int layer_mask;
-
+    private LeftJoystickPlayerController JoyStick;
     bool triggerGround;
     bool triggerFall;
+    bool uiPressed;
+    public void JumpPressed() {
+        uiPressed = true;
+    }
     public void ReturntoPoint()
     {
         GameObject cubes = Instantiate(brokenSkin, transform.position, transform.rotation);
@@ -41,6 +46,8 @@ public class playermovement : MonoBehaviour
         controller = GetComponent<CharacterController>();
         if (drops)
             drops.text = "Times Dropped: " + dropTimes.ToString();
+        if (Mobile)
+            JoyStick = GetComponent<LeftJoystickPlayerController>();
     }
     void FixedUpdate()
     {
@@ -115,18 +122,27 @@ public class playermovement : MonoBehaviour
         {
             ReturntoPoint();
         }
-
         float h = Input.GetAxis("Horizontal");
+        if (Mobile)
+        {
+            h = JoyStick.leftJoystickInput.x;
+        }
+
         float old = moveDirection.y;
 
         moveDirection = new Vector3(0, 0, h);
 
         moveDirection = transform.TransformDirection(moveDirection);
         moveDirection *= speed;
-        if (canJump && Input.GetButton("Jump"))
+        bool jumpButtonPressed = Input.GetButton("Jump");
+        if (Mobile) {
+            jumpButtonPressed = uiPressed;
+        }
+        if (canJump && jumpButtonPressed)
         {
             moveDirection.y = jumpSpeed;
             anim.SetTrigger("Jump");
+            
         }
 
         if (onGround)

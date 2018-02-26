@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class AnimationRotation : MonoBehaviour {
     public float rotationSpeed = 10;
-    private float standY = -0.581f;
-    private float crouchY = -0.725f;
+
     public bool StartScreen = false;
-    private CharacterController cc;
+    bool Mobile;
+    LeftJoystickPlayerController joystick;
     // Use this for initialization
     void Start () {
-        cc = transform.GetComponentInParent<CharacterController>();
+        Mobile = GetComponentInParent<playermovement>().Mobile;
+        if (Mobile)
+            joystick = GetComponentInParent<LeftJoystickPlayerController>();
 
     }
 	
 	// Update is called once per frame
 	void Update () {
         float h = Input.GetAxis("Horizontal");
-
+        if (Mobile)
+            h = joystick.leftJoystickInput.x;
         if (h > 0) {
             float c = 0;
             if (StartScreen) {
@@ -31,7 +34,7 @@ public class AnimationRotation : MonoBehaviour {
         {
             float c = -180;
             if (StartScreen)
-                c = -90;
+                c = -90; 
             if (Quaternion.Angle(transform.rotation, Quaternion.Euler(new Vector3(0,c,0))) > 1)
             {
                 transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(0, c, 0)), rotationSpeed * Time.deltaTime);
