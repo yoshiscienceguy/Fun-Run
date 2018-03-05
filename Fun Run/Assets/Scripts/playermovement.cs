@@ -28,6 +28,9 @@ public class playermovement : MonoBehaviour
     public void JumpPressed() {
         uiPressed = true;
     }
+    public void JumpDepressed() {
+        uiPressed = false;
+    }
     public void ReturntoPoint()
     {
         GameObject cubes = Instantiate(brokenSkin, transform.position, transform.rotation);
@@ -147,12 +150,13 @@ public class playermovement : MonoBehaviour
 
         if (onGround)
         {
+            anim.SetBool("OnGround", true);
             alreadyFalling = false;
 
         }
         else
         {
-
+            anim.SetBool("OnGround", false);
             moveDirection.y = old;
         }
 

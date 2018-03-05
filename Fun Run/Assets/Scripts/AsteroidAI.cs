@@ -27,7 +27,7 @@ public class AsteroidAI : MonoBehaviour {
             Destroy(cubes, 3f);
             Destroy(gameObject);
         }
-        else if (other.name == "Tipper")
+        else if (other.CompareTag("Base"))
         {
             GameObject cubes = Instantiate(destoryedAsteriod, transform.position, transform.rotation);
             Destroy(cubes, 3f);
