@@ -10,6 +10,7 @@ public class AsteroidAI : MonoBehaviour {
     void Start () {
         randomAngle = Random.Range(-30, 30);
         transform.rotation = Quaternion.Euler(new Vector3(randomAngle, 0, 0));
+        Destroy(gameObject, 3);
 
 	}
 	

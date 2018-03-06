@@ -9,11 +9,16 @@ public class cameaFollow : MonoBehaviour {
     bool moveRight = false;
     bool moveLeft = false;
     Quaternion left;
-    Quaternion right; 
-	// Use this for initialization
-	void Start () {
+    Quaternion right;
+    bool Mobile = false;
+    private LeftJoystickPlayerController JoyStick;
+    // Use this for initialization
+    void Start () {
         left = Quaternion.Euler(new Vector3(0,-100,0));
         right = Quaternion.Euler(new Vector3(0,-75,0));
+        Mobile = target.GetComponent<playermovement>().Mobile;
+        if (Mobile)
+            JoyStick = target.GetComponent<LeftJoystickPlayerController>();
     }
 	
 	// Update is called once per frame
@@ -23,6 +28,10 @@ public class cameaFollow : MonoBehaviour {
         transform.position = Vector3.Lerp(transform.position, fixedPosition, speed * Time.deltaTime);
 
         float h = Input.GetAxis("Horizontal");
+        if (Mobile)
+        {
+            h = JoyStick.leftJoystickInput.x;
+        }
         if (h > 0)
         {
             moveRight = true;
