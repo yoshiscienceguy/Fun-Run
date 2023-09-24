@@ -13,6 +13,9 @@ namespace TMPro
         public class CharacterSelectionEvent : UnityEvent<char, int> { }
 
         [Serializable]
+        public class SpriteSelectionEvent : UnityEvent<char, int> { }
+
+        [Serializable]
         public class WordSelectionEvent : UnityEvent<string, int, int> { }
 
         [Serializable]
@@ -20,6 +23,7 @@ namespace TMPro
 
         [Serializable]
         public class LinkSelectionEvent : UnityEvent<string, string, int> { }
+
 
         /// <summary>
         /// Event delegate triggered when pointer is over a character.
@@ -31,6 +35,19 @@ namespace TMPro
         }
         [SerializeField]
         private CharacterSelectionEvent m_OnCharacterSelection = new CharacterSelectionEvent();
+
+
+        /// <summary>
+        /// Event delegate triggered when pointer is over a sprite.
+        /// </summary>
+        public SpriteSelectionEvent onSpriteSelection
+        {
+            get { return m_OnSpriteSelection; }
+            set { m_OnSpriteSelection = value; }
+        }
+        [SerializeField]
+        private SpriteSelectionEvent m_OnSpriteSelection = new SpriteSelectionEvent();
+
 
         /// <summary>
         /// Event delegate triggered when pointer is over a word.
@@ -107,14 +124,19 @@ namespace TMPro
         {
             if (TMP_TextUtilities.IsIntersectingRectTransform(m_TextComponent.rectTransform, Input.mousePosition, m_Camera))
             {
-                #region Example of Character Selection
+                #region Example of Character or Sprite Selection
                 int charIndex = TMP_TextUtilities.FindIntersectingCharacter(m_TextComponent, Input.mousePosition, m_Camera, true);
                 if (charIndex != -1 && charIndex != m_lastCharIndex)
                 {
                     m_lastCharIndex = charIndex;
 
-                    // Send event to any event listeners.
-                    SendOnCharacterSelection(m_TextComponent.textInfo.characterInfo[charIndex].character, charIndex);
+                    TMP_TextElementType elementType = m_TextComponent.textInfo.characterInfo[charIndex].elementType;
+
+                    // Send event to any event listeners depending on whether it is a character or sprite.
+                    if (elementType == TMP_TextElementType.Character)
+                        SendOnCharacterSelection(m_TextComponent.textInfo.characterInfo[charIndex].character, charIndex);
+                    else if (elementType == TMP_TextElementType.Sprite)
+                        SendOnSpriteSelection(m_TextComponent.textInfo.characterInfo[charIndex].character, charIndex);
                 }
                 #endregion
 
@@ -170,10 +192,18 @@ namespace TMPro
                     // Get information about the link.
                     TMP_LinkInfo linkInfo = m_TextComponent.textInfo.linkInfo[linkIndex];
 
-                    // Send the event to any listeners. 
+                    // Send the event to any listeners.
                     SendOnLinkSelection(linkInfo.GetLinkID(), linkInfo.GetLinkText(), linkIndex);
                 }
                 #endregion
+            }
+            else
+            {
+                // Reset all selections given we are hovering outside the text container bounds.
+                m_selectedLink = -1;
+                m_lastCharIndex = -1;
+                m_lastWordIndex = -1;
+                m_lastLineIndex = -1;
             }
         }
 
@@ -194,6 +224,12 @@ namespace TMPro
         {
             if (onCharacterSelection != null)
                 onCharacterSelection.Invoke(character, characterIndex);
+        }
+
+        private void SendOnSpriteSelection(char character, int characterIndex)
+        {
+            if (onSpriteSelection != null)
+                onSpriteSelection.Invoke(character, characterIndex);
         }
 
         private void SendOnWordSelection(string word, int charIndex, int length)

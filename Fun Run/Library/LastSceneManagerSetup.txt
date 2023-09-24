@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/scenes/smelly santi.unity
+- path: Assets/scenes/OpenScene.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
